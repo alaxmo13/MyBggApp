@@ -305,11 +305,7 @@ h1.title-game {
   margin-bottom: 10px;
 }
 
-.details .header-designers,
-.details .header-artists,
-.details .header-publishers,
-.details .header-categories,
-.details .header-mechanics {
+.details .header-credits {
   margin-bottom: 10px;
 }
 
@@ -731,11 +727,7 @@ h1.title-game {
     flex-direction: row;
   }
 
-  .details .header-designers,
-  .details .header-artists,
-  .details .header-publishers,
-  .details .header-categories,
-  .details .header-mechanics {
+  .details .header-credits {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;

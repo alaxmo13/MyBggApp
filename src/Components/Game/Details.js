@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Credits from "./Credits";
 import Plays from "./Plays";
 
 class Details extends Component {
@@ -91,76 +92,11 @@ class Details extends Component {
           <img src={image} className="image" alt="Game Cover"></img>
           <div className="header-data">
             <h1 className="title">{title}</h1>
-            <div className="header-designers">
-              <div>
-                <h2>Designers:</h2>
-              </div>
-              <div>
-                {designers.map((designer, index) => {
-                  return (
-                    <p key={index} className="designer">
-                      {designer}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="header-artists">
-              <div>
-                <h2>Artists:</h2>
-              </div>
-              <div>
-                {artists.map((artists, index) => {
-                  return (
-                    <p key={index} className="artist">
-                      {artists}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="header-publishers">
-              <div>
-                <h2>Publishers:</h2>
-              </div>
-              <div>
-                {publishers.map((publisher, index) => {
-                  return (
-                    <p key={index} className="publisher">
-                      {publisher}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="header-categories">
-              <div>
-                <h2>Categories:</h2>
-              </div>
-              <div>
-                {categories.map((category, index) => {
-                  return (
-                    <p key={index} className="category">
-                      {category}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="header-mechanics">
-              <div>
-                <h2>Mechanics:</h2>
-              </div>
-              <div>
-                {mechanics.map((mechanic, index) => {
-                  return (
-                    <p key={index} className="mechanic">
-                      {mechanic}
-                    </p>
-                  );
-                })}
-              </div>
-            </div>
+            <Credits type="Designers" data={designers} class="designer" />
+            <Credits type="Artists" data={artists} class="artist" />
+            <Credits type="Publishers" data={publishers} class="publisher" />
+            <Credits type="Categories" data={categories} class="category" />
+            <Credits type="Mechanics" data={mechanics} class="mechanic" />
           </div>
         </div>
         <h2 className="section">Description</h2>
