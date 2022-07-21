@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Game from "./Collection/Game";
+import Game from "../Collection/Game";
 
 const Hotness = () => {
   const [hot, updateHot] = useState("");
