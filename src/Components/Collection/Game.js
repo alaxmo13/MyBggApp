@@ -1,94 +1,40 @@
 import { Link } from "react-router-dom";
+import DurationInfo from "../GameInfo/DurationInfo";
+import PlayerInfo from "../GameInfo/PlayerInfo";
+import UserRatingInfo from "../GameInfo/UserRatingInfo";
+import RatingInfo from "../GameInfo/RatingInfo";
 
-const Game = ({
-  user,
-  title,
-  img,
-  id,
-  year,
-  minplayers,
-  maxplayers,
-  minplaytime,
-  maxplaytime,
-  rating,
-  usersrated,
-  userrating,
-}) => {
-  let playersInfo = "";
-  let durationInfo = "";
-  let ratingInfo = "";
-  let userRatingInfo = "";
-  playersInfo = (
-    <div className="game-column">
-      <h3 className="number-players">
-        {minplayers}{" "}
-        {maxplayers && minplayers != maxplayers ? `- ${maxplayers}` : ""}{" "}
-      </h3>
-    </div>
-  );
-  durationInfo = (
-    <div className="game-column">
-      <h3 className="duration">
-        {minplaytime}{" "}
-        {maxplaytime && minplaytime != maxplaytime ? `- ${maxplaytime} ` : ""}
-      </h3>
-    </div>
-  );
-  if (rating) {
-    ratingInfo = (
-      <div className="game-column">
-        <div
-          className={`${
-            Number(usersrated) < 30
-              ? "grey-game"
-              : Number(rating).toFixed(1) < 5
-              ? "red-game"
-              : Number(rating).toFixed(1) < 8
-              ? "blue-game"
-              : "green-game"
-          } rating`}
-        >
-          <b>{Number(usersrated) < 30 ? "--" : Number(rating).toFixed(1)}</b>
-        </div>
-      </div>
-    );
-  }
-  userRatingInfo = (
-    <div className="game-column">
-      <div
-        className={`${
-          userrating == "N/A"
-            ? "grey-game"
-            : Number(userrating).toFixed(1) < 5
-            ? "red-game"
-            : Number(userrating).toFixed(1) < 8
-            ? "blue-game"
-            : "green-game"
-        } rating`}
-      >
-        <b>{userrating == "N/A" ? "--" : Number(userrating).toFixed(1)}</b>
-      </div>
-    </div>
-  );
+const Game = ({ user, game }) => {
   return (
     <div className="game">
-      <Link to={`/game/${id}/${user}`}>
+      <Link to={`/game/${game.data.objectid}/${user}`}>
         <div className="image-wrap">
-          <img src={img} className="image-game" alt="game cover" />
+          <img src={game.image[0]} className="image-game" alt="game cover" />
         </div>
       </Link>
-      <Link to={`/game/${id}/${user}`}>
+      <Link to={`/game/${game.data.objectid}/${user}`}>
         <div className="game-column title">
-          <h1 className="title-game">{title}</h1>
+          <h1 className="title-game">{game.name[0].text}</h1>
         </div>
       </Link>
-      {playersInfo}
-      {durationInfo}
-      <div className="game-column">{year}</div>
+      <PlayerInfo
+        minplayers={game.stats[0].data.minplayers}
+        maxplayers={game.stats[0].data.maxplayers}
+      />
+      <DurationInfo
+        minplaytime={game.stats[0].data.minplaytime}
+        maxplaytime={game.stats[0].data.maxplaytime}
+      />
+      <div className="game-column">
+        {game["yearpublished"] ? game.yearpublished[0] : ""}
+      </div>
       <div className="game-column"></div>
       <div className="game-column"></div>
-      {userRatingInfo}
-      {ratingInfo}
+      <UserRatingInfo userrating={game.stats[0].rating[0].data.value} />
+      <RatingInfo
+        rating={game.stats[0].rating[0].average[0].data.value}
+        usersrated={game.stats[0].rating[0].usersrated[0].data.value}
+      />
     </div>
   );
 };

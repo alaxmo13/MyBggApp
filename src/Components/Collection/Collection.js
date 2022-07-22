@@ -110,21 +110,7 @@ class Results extends Component {
             <h2>No Games Found</h2>
           ) : (
             this.state.games.map((game) => (
-              <Game
-                user={this.state.user}
-                title={game.name[0].text}
-                img={game.image[0]}
-                year={game["yearpublished"] ? game.yearpublished[0] : ""}
-                id={game.data.objectid}
-                key={game.data.objectid}
-                minplayers={game.stats[0].data.minplayers}
-                maxplayers={game.stats[0].data.maxplayers}
-                minplaytime={game.stats[0].data.minplaytime}
-                maxplaytime={game.stats[0].data.maxplaytime}
-                rating={game.stats[0].rating[0].average[0].data.value}
-                usersrated={game.stats[0].rating[0].usersrated[0].data.value}
-                userrating={game.stats[0].rating[0].data.value}
-              />
+              <Game user={this.state.user} game={game} />
             ))
           )}
         </div>
