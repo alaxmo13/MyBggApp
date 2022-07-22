@@ -110,7 +110,11 @@ class Results extends Component {
             <h2>No Games Found</h2>
           ) : (
             this.state.games.map((game) => (
-              <Game user={this.state.user} game={game} />
+              <Game
+                user={this.state.user}
+                game={game}
+                key={game.data.objectid}
+              />
             ))
           )}
         </div>
