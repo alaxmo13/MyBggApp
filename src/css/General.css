@@ -1,5 +1,7 @@
-* {
-  font-family: Arial;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: black;
 }
 
 a {
@@ -186,6 +188,8 @@ body {
 }
 
 /**** Game.js ****/
+
+
 
 .game {
   margin-top: 10px;

@@ -16,7 +16,7 @@ const SearchUser = () => {
           history.push(path);
         }}
       >
-        <label className="user" htmlFor="user">
+        <label htmlFor="user">
           <input
             placeholder="BGG Username"
             value={username}

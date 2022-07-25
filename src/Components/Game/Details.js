@@ -45,9 +45,7 @@ class Details extends Component {
       return <h2>loading...</h2>;
     }
     let game = this.state.game;
-    let title = game.name[0].data.value;
-    let image = game.image[0];
-    let description = game.description[0];
+
     let designers = [];
     let artists = [];
     let publishers = [];
@@ -72,6 +70,7 @@ class Details extends Component {
           break;
       }
     });
+
     let playsSection = "";
     if (this.props.match.params.user) {
       playsSection = (
@@ -89,18 +88,40 @@ class Details extends Component {
     return (
       <div className="details">
         <div className="details-header">
-          <img src={image} className="image" alt="Game Cover"></img>
+          <img src={game.image[0]} className="image" alt="Game Cover"></img>
           <div className="header-data">
-            <h1 className="title">{title}</h1>
-            <Credits type="Designers" data={designers} class="designer" />
-            <Credits type="Artists" data={artists} class="artist" />
-            <Credits type="Publishers" data={publishers} class="publisher" />
-            <Credits type="Categories" data={categories} class="category" />
-            <Credits type="Mechanics" data={mechanics} class="mechanic" />
+            <h1 className="title">{game.name[0].data.value}</h1>
+            <div className="credits-data">
+              <div>
+                <Credits
+                  type="Designers"
+                  data={designers}
+                  class="credits-field"
+                />
+                <Credits type="Artists" data={artists} class="credits-field" />
+                <Credits
+                  type="Publishers"
+                  data={publishers}
+                  class="credits-field"
+                />
+              </div>
+              <div>
+                <Credits
+                  type="Categories"
+                  data={categories}
+                  class="credits-field"
+                />
+                <Credits
+                  type="Mechanics"
+                  data={mechanics}
+                  class="credits-field"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <h2 className="section">Description</h2>
-        <p className="description">{description}</p>
+        <p className="description">{game.description[0]}</p>
         {playsSection}
       </div>
     );

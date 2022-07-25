@@ -24,6 +24,7 @@ const App = () => {
             <SearchUser />
           </Route>
         </Switch>
+        <footer>Powered by Àlex - Jugador Inicial</footer>
       </Router>
     </div>
   );

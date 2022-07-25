@@ -97,11 +97,16 @@ class Results extends Component {
 
   render() {
     return (
-      <div className="search-result">
-        <div className="mb-2">
+      <div className="collection">
+        <div id="ResultsHeader" className="mb-2">
           <ResultsHeader />
         </div>
-        <div className="search-result-wrap inner">
+        <div
+          className="collection-wrap"
+          style={{
+            height: `400px`,
+          }}
+        >
           {this.state.status == 202 ? (
             <h2>
               Your request has been submitted to BGG. Please refresh the page

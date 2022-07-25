@@ -24,7 +24,8 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "parcel": "^1.12.3",
-    "prettier": "^2.6.1"
+    "prettier": "^2.6.1",
+    "sass": "^1.53.0"
   },
   "scripts": {
     "build": "parcel build src/index.html",

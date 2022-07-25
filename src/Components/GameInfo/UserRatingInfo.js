@@ -6,12 +6,12 @@ const UserRatingInfo = (props) => {
       <div
         className={`${
           props.userrating == "N/A"
-            ? "grey-game"
+            ? "grey"
             : Number(props.userrating).toFixed(1) < 5
-            ? "red-game"
+            ? "red"
             : Number(props.userrating).toFixed(1) < 8
-            ? "blue-game"
-            : "green-game"
+            ? "blue"
+            : "green"
         } rating`}
       >
         <b>

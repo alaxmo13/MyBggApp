@@ -6,7 +6,7 @@ import RatingInfo from "./RatingInfo";
 
 const GameDataInfo = (props) => {
   return (
-    <div>
+    <div className="game-data-info">
       <PlayerInfo
         minplayers={props.game.stats[0].data.minplayers}
         maxplayers={props.game.stats[0].data.maxplayers}

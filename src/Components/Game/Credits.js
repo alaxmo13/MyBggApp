@@ -6,11 +6,12 @@ const Credits = (props) => {
       <div>
         <h2>{props.type}:</h2>
       </div>
-      <div>
+      <div className="credits-data">
         {props.data.map((object, index) => {
           return (
             <p key={index} className={props.class}>
-              {object}
+              &nbsp;
+              {object + (index < props.data.length - 1 ? "," : "")}
             </p>
           );
         })}

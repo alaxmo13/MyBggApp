@@ -27,14 +27,7 @@ class Plays extends Component {
         cleanedResult = cleanedResult.replaceAll("&mdash;", "—");
         cleanedResult = cleanedResult.replaceAll("&ndash;", "-");
         const res = JSON.parse(cleanedResult);
-        parent.setState(
-          Object.assign(
-            {
-              loading: false,
-            },
-            { plays: res }
-          )
-        );
+        parent.setState(Object.assign({ loading: false }, { plays: res }));
       }
     );
   }
@@ -44,9 +37,6 @@ class Plays extends Component {
       return <h2>loading...</h2>;
     }
     let plays = this.state.plays.play;
-    /*let title = game.name[0].data.value;
-    let image = game.image[0];
-    let description = game.description[0];*/
     return (
       <div className="plays">
         {!plays || !plays.length ? (
