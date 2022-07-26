@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Credits from "./Credits";
+import PlayersPoll from "./PlayersPoll";
 import Plays from "./Plays";
 
 class Details extends Component {
@@ -120,8 +121,12 @@ class Details extends Component {
             </div>
           </div>
         </div>
+        <h2 className="section">Game Data</h2>
+        <div className="description">
+          <PlayersPoll poll={game.poll[0]} />
+        </div>
         <h2 className="section">Description</h2>
-        <p className="description">{game.description[0]}</p>
+        <div className="description">{game.description[0]}</div>
         {playsSection}
       </div>
     );

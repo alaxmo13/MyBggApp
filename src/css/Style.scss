@@ -3,6 +3,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: black;
+  margin: 0;
+  background-color: lightblue;
 }
 
 a {
@@ -15,7 +17,9 @@ a {
 }
 
 header {
-  margin: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: darkblue;
 
   img {
     max-width: 250px;
@@ -23,7 +27,15 @@ header {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: midnightblue;
+  color: white
 }
 
 .bgg-user-form {
@@ -201,6 +213,11 @@ footer {
   .description {
     line-height: 1.5;
     padding: 0px 50px;
+  }
+
+  .chart-wrapper {
+    display: flex;
+    gap: 10px;
   }
 }
 
